@@ -76,7 +76,7 @@
 	00:00:00:00
       </span>
       <script>
-	const deadline = new Date('2024-09-19T05:00:00')
+	const deadline = new Date('2024-09-18T12:00:00+05:00')
 	const countdownEl = window.countdown
 
 	const getDiffString = (deadline) => {
@@ -88,6 +88,7 @@
 	    ((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
 	    ((diff % (1000 * 60 * 60)) / (1000 * 60)),
 	    ((diff % (1000 * 60)) / 1000),
+	    ((diff % (1000)) / 10),
 	  ]
 
 	  return ddhhmmss
@@ -101,7 +102,7 @@
 	}
 
 	updateCountdown()
-	setInterval(updateCountdown, 1000)
+	setInterval(updateCountdown, 49)
       </script>
     </div>
 
