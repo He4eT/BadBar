@@ -190,8 +190,8 @@
 
 	<article class="item-card">
 	  <div class="item-images">
-	    <img src="./img/photos/balaclava_1.jpg" alt="Свитер с собаками в приятных цветах">
-	    <img src="./img/photos/balaclava_2.jpg" alt="Свитер с собаками в приятных цветах">
+	    <img src="./img/photos/balaclava_1.jpg" alt="Балаклава с вышивкой" draggable="false">
+	    <img src="./img/photos/balaclava_2.jpg" alt="Балаклава с вышивкой" draggable="false">
 	  </div>
 	  <div class="item-details">
 	    <h2 class="item-name">
@@ -225,7 +225,7 @@
 
 	<article class="item-card">
 	  <div class="item-images">
-	    <img src="./img/photos/blanket.png" alt="Свитер с собаками в приятных цветах">
+	    <img src="./img/photos/blanket.png" alt="Крайне уютный плед" draggable="false">
 	  </div>
 	  <div class="item-details">
 	    <h2 class="item-name">
@@ -304,6 +304,35 @@
 
     updateCountdown()
     setInterval(updateCountdown, 49)
+    </script>
+    <script>
+    document.querySelectorAll('.item-images').forEach((slider) => {
+      let isDown = false
+      let startX
+      let scrollLeft
+
+      slider.addEventListener('mousedown', (e) => {
+	isDown = true
+	slider.classList.add('active')
+	startX = e.pageX - slider.offsetLeft
+	scrollLeft = slider.scrollLeft
+      })
+      slider.addEventListener('mouseleave', () => {
+	isDown = false
+	slider.classList.remove('active')
+      })
+      slider.addEventListener('mouseup', () => {
+	isDown = false
+	slider.classList.remove('active')
+      })
+      slider.addEventListener('mousemove', (e) => {
+	if(!isDown) return
+	e.preventDefault()
+	const x = e.pageX - slider.offsetLeft
+	const walk = (x - startX) // * 1 //scroll-fast
+	slider.scrollLeft = scrollLeft - walk
+      })
+    })
     </script>
   </body>
 </html>
