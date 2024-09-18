@@ -87,6 +87,9 @@
 	const getDiffString = (deadline) => {
 	  const now = new Date()
 	  const diff = deadline - now
+	  if (diff <= 0) {
+	    location.reload()
+	  }
 
 	  const ddhhmmss = [
 	    ((diff) / (1000 * 60 * 60 * 24)),
