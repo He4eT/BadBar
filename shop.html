@@ -34,6 +34,18 @@
 
       --padding: 32px;
       --width: 800px;
+      --step: 1vh;
+    }
+    @media (orientation: landscape) {
+      body {
+	--step: 1vh;
+      }
+    }
+
+    @media (orientation: portrait) {
+      body {
+	--step: 8px;
+      }
     }
 
     a {
@@ -58,7 +70,7 @@
     }
 
     .stripe {
-      height: 20svh;
+      height: calc(20 * var(--step));
       box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
       background-color: #ffffff;
       background-image: url(./img/badbar-wide.svg);
@@ -74,14 +86,14 @@
 
     .item-card {
       padding: var(--padding);
-      margin: 16svh 0 8svh;
+      margin: calc(16 * var(--step)) 0 calc(8 * var(--step));
     }
 
     .item-images {
       display: flex;
       flex-direction: row;
       overflow-x: scroll;
-      height: 70svh;
+      height: calc(70 * var(--step));
 
       scrollbar-color: transparent transparent;
       scrollbar-width: thin;
@@ -107,8 +119,8 @@
       width: 100%;
       max-width: 750px;
       height: 2500px;
-      margin-top: 8svh;
-      scroll-margin: 10svh;
+      margin-top: calc(8 * var(--step));
+      scroll-margin: calc(10 * var(--step));
     }
     </style>
   </head>
@@ -123,14 +135,14 @@
 
       <div class="stripes" style="
 	position: sticky;
-	top: -20svh;
+	top: calc(-20 * var(--step));
 	z-index: 100;
-	padding-top: 8svh;
-	padding-bottom: 12svh;
+	padding-top: calc(8 * var(--step));
+	padding-bottom: calc(12 * var(--step));
 	">
 	<div class="stripe" style="
 	  transform: rotate(-4deg);
-	  margin-bottom: -16svh
+	  margin-bottom: calc(-16 * var(--step))
 	  ">
 	</div>
 	<div class="stripe" style="
@@ -333,6 +345,11 @@
 	slider.scrollLeft = scrollLeft - walk
       })
     })
+    </script>
+    <script>
+    if('virtualKeyboard' in navigator) {
+      navigator.virtualKeyboard.overlaysContent = true;
+    }
     </script>
   </body>
 </html>
