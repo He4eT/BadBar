@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="BADBAR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://he4et.github.io/BadBar/" />
+    <meta property="og:image" content="https://he4et.github.io/BadBar/img/preview.png" />
+
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+
+    <title>
+      BADBAR
+    </title>
+    <meta name="description" content="GOOD Mерч by BAD Бар for Кэмп U 2024">
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+      font-weight: 300;
+      font-style: normal;
+      font-size: 30px;
+      line-height: 1.5;
+      text-transform: uppercase;
+
+      --padding: 32px;
+      --width: 800px;
+    }
+
+    main {
+      box-sizing: border-box;
+    }
+
+    .announcement {
+      padding: var(--padding);
+    }
+
+    .disclamer {
+      display: none;
+      padding: var(--padding);
+      max-width: var(--width);
+    }
+
+    .stripes {
+      overflow-x: clip;
+    }
+
+    .stripe {
+      height: 20vh;
+      box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+      background-color: #ffffff;
+      background-image: url(./img/badbar-wide.svg);
+      background-repeat: repeat-x;
+      background-size: auto 50%;
+      background-position: right 50% center;
+
+      position: relative;
+      margin-left: -30vw;
+      width: 160vw;
+      transform-origin: center;
+    }
+
+    .item-card {
+      /* margin-bottom: 10vh; */
+      padding: var(--padding);
+    }
+
+    .item-image img {
+      max-width: 800px;
+      display: none;
+    }
+
+    .item-name {
+      font: inherit;
+      margin-bottom: inherit;
+    }
+
+    .item-description {
+      text-transform: none;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 750px;
+      height: 2500px;
+    }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="announcement">
+	До конца предзаказа осталось
+	<span id="countdown">
+	  00:00:00:00
+	</span>
+	<script>
+	const deadline = new Date('2024-09-22T05:00:00')
+	const countdownEl = window.countdown
+
+	const getDiffString = (deadline) => {
+	  const now = new Date()
+	  const diff = deadline - now
+
+	  const ddhhmmss = [
+	    ((diff) / (1000 * 60 * 60 * 24)),
+	    ((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+	    ((diff % (1000 * 60 * 60)) / (1000 * 60)),
+	    ((diff % (1000 * 60)) / 1000),
+	  ]
+
+	  return ddhhmmss
+	    .map((x) => Math.trunc(x))
+	    .map((x) => String(x).padStart(2, 0))
+	    .join(':')
+	}
+
+	const updateCountdown = () => {
+	  countdownEl.innerText = getDiffString(deadline)
+	}
+
+	updateCountdown()
+	setInterval(updateCountdown, 1000)
+	</script>
+      </div>
+
+      <div class="disclamer">
+	Плохой Бар — это некоммерческая и не организация,
+	которая существует на наши зарплаты и ваши донаты
+	и не имеет никакого отношения к администрации Кэмп U.
+      </div>
+
+      <section>
+	<div class="stripes">
+	  <div class="stripe" style="
+	    transform: rotate(-4deg);
+	    margin-bottom: -16vh
+	    ">
+	  </div>
+	  <div class="stripe" style="
+	    transform: rotate(3deg);
+	    ">
+	  </div>
+	</div>
+
+	<article class="item-card">
+	  <div class="item-image">
+	    <img src="./img/photos/sweater.png" alt="Свитер с собаками в приятных цветах">
+	  </div>
+	  <div class="item-details">
+	    <h2 class="item-name">
+	      Свитер
+	    </h2>
+	    <p class="item-price">
+	      10 000 ₽
+	    </p>
+	    <p class="item-details">
+	      50% шерсть / 50% акрил <br>
+	      oversize <br>
+	      Осталось 35 шт.
+	    </p>
+	    <p class="item-description">
+	      Наша ода грузинским псам.
+	    </p>
+	  </div>
+	</article>
+
+	<div class="stripes">
+	  <div class="stripe" style="
+	    transform: rotate(-5deg);
+	    ">
+	  </div>
+	</div>
+
+	<article class="item-card">
+	  <div class="item-image">
+	    <img src="./img/photos/balaclava.png" alt="Свитер с собаками в приятных цветах">
+	  </div>
+	  <div class="item-details">
+	    <h2 class="item-name">
+	      Балаклава
+	    </h2>
+	    <p class="item-price">
+	      4 000 ₽
+	    </p>
+	    <p class="item-details">
+	      шерсть / акрил <br>
+	      onesize <br>
+	      Осталось 15 шт.
+	    </p>
+	    <p class="item-description">
+	      Ручная вышивка BAD. <br>
+	      Сворачивается в шапку, можно вытянуть ушки. <br>
+	      На баре сможешь пришить подвеску, чтобы отличить себя. <br>
+	    </p>
+	  </div>
+	</article>
+
+	<div class="stripes">
+	  <div class="stripe" style="
+	    transform: rotate(3deg);
+	    ">
+	  </div>
+	</div>
+
+	<article class="item-card">
+	  <div class="item-image">
+	    <img src="./img/photos/blanket.png" alt="Свитер с собаками в приятных цветах">
+	  </div>
+	  <div class="item-details">
+	    <h2 class="item-name">
+	      Плед
+	    </h2>
+	    <p class="item-price">
+	      3 000 ₽
+	    </p>
+	    <p class="item-details">
+	      Флис<br>
+	      Осталось 33 шт.
+	    </p>
+	    <p class="item-description">
+	      На пледе уникальный номер.<br>
+	    </p>
+	  </div>
+	</article>
+
+	<div class="stripes">
+	  <div class="stripe" style="
+	    transform: rotate(2deg);
+	    ">
+	  </div>
+	</div>
+      </section>
+
+    </main>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdoGebYUv4BbrSJydwOmt-mDzQrZQetvjOpMdnqh31CJfIxBg/viewform?embedded=true" width="640" height="1792" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+
+    <div class="stripes">
+      <div class="stripe" style="
+	transform: rotate(0deg);
+	">
+      </div>
+    </div>
+  </body>
+</html>
