@@ -44,7 +44,6 @@
     }
 
     .disclamer {
-      display: none;
       padding: var(--padding);
       max-width: var(--width);
     }
@@ -69,13 +68,30 @@
     }
 
     .item-card {
-      /* margin-bottom: 10vh; */
       padding: var(--padding);
+      margin: 16vh 0 8vh;
     }
 
-    .item-image img {
-      max-width: 800px;
-      display: none;
+    .item-images {
+      display: flex;
+      flex-direction: row;
+      /* gap: var(--padding); */
+      overflow-x: scroll;
+      height: 70vh;
+
+      scrollbar-color: transparent transparent;
+      scrollbar-width: thin;
+
+      padding: 0 var(--padding);
+      margin: 0 calc(-1 * var(--padding));
+    }
+
+    .item-images:hover {
+      /* scrollbar-color: #ff2f00 transparent; */
+    }
+
+    .item-images img {
+      height: 100%;
     }
 
     .item-name {
@@ -91,6 +107,7 @@
       width: 100%;
       max-width: 750px;
       height: 2500px;
+      margin-top: 16vh;
     }
     </style>
   </head>
@@ -98,37 +115,27 @@
     <main>
       <div class="announcement">
 	До конца предзаказа осталось
-	<span id="countdown">
+	<span class="countdown">
 	  00:00:00:00
 	</span>
-	<script>
-	const deadline = new Date('2024-09-22T05:00:00')
-	const countdownEl = window.countdown
+      </div>
 
-	const getDiffString = (deadline) => {
-	  const now = new Date()
-	  const diff = deadline - now
-
-	  const ddhhmmss = [
-	    ((diff) / (1000 * 60 * 60 * 24)),
-	    ((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-	    ((diff % (1000 * 60 * 60)) / (1000 * 60)),
-	    ((diff % (1000 * 60)) / 1000),
-	  ]
-
-	  return ddhhmmss
-	    .map((x) => Math.trunc(x))
-	    .map((x) => String(x).padStart(2, 0))
-	    .join(':')
-	}
-
-	const updateCountdown = () => {
-	  countdownEl.innerText = getDiffString(deadline)
-	}
-
-	updateCountdown()
-	setInterval(updateCountdown, 1000)
-	</script>
+      <div class="stripes" style="
+	position: sticky;
+	top: -14vh;
+	z-index: 100;
+	">
+	<div class="stripe" style="
+	  transform: rotate(-4deg);
+	  margin-top: 8vh;
+	  margin-bottom: -16vh
+	  ">
+	</div>
+	<div class="stripe" style="
+	  transform: rotate(3deg);
+	  margin-bottom: 16vh;
+	  ">
+	</div>
       </div>
 
       <div class="disclamer">
@@ -138,21 +145,14 @@
       </div>
 
       <section>
-	<div class="stripes">
-	  <div class="stripe" style="
-	    transform: rotate(-4deg);
-	    margin-bottom: -16vh
-	    ">
-	  </div>
-	  <div class="stripe" style="
-	    transform: rotate(3deg);
-	    ">
-	  </div>
-	</div>
-
 	<article class="item-card">
-	  <div class="item-image">
-	    <img src="./img/photos/sweater.png" alt="Свитер с собаками в приятных цветах">
+	  <div class="item-images">
+	    <img src="./img/photos/sweater_2.jpg" alt="Свитер с собаками в приятных цветах" draggable="false">
+	    <img src="./img/photos/sweater_4.png" alt="Свитер с собаками в приятных цветах" draggable="false">
+	    <img src="./img/photos/sweater_5.jpg" alt="Свитер с собаками в приятных цветах" draggable="false">
+	    <img src="./img/photos/sweater_3.png" alt="Свитер с собаками в приятных цветах" draggable="false">
+	    <img src="./img/photos/sweater_1.jpg" alt="Свитер с собаками в приятных цветах" draggable="false">
+	    <img src="./img/photos/sweater_6.jpg" alt="Свитер с собаками в приятных цветах" draggable="false">
 	  </div>
 	  <div class="item-details">
 	    <h2 class="item-name">
@@ -174,14 +174,15 @@
 
 	<div class="stripes">
 	  <div class="stripe" style="
-	    transform: rotate(-5deg);
+	    transform: rotate(-1deg);
 	    ">
 	  </div>
 	</div>
 
 	<article class="item-card">
-	  <div class="item-image">
-	    <img src="./img/photos/balaclava.png" alt="Свитер с собаками в приятных цветах">
+	  <div class="item-images">
+	    <img src="./img/photos/balaclava_1.png" alt="Свитер с собаками в приятных цветах">
+	    <img src="./img/photos/balaclava_2.png" alt="Свитер с собаками в приятных цветах">
 	  </div>
 	  <div class="item-details">
 	    <h2 class="item-name">
@@ -205,13 +206,13 @@
 
 	<div class="stripes">
 	  <div class="stripe" style="
-	    transform: rotate(3deg);
+	    transform: rotate(-1deg);
 	    ">
 	  </div>
 	</div>
 
 	<article class="item-card">
-	  <div class="item-image">
+	  <div class="item-images">
 	    <img src="./img/photos/blanket.png" alt="Свитер с собаками в приятных цветах">
 	  </div>
 	  <div class="item-details">
@@ -233,14 +234,14 @@
 
 	<div class="stripes">
 	  <div class="stripe" style="
-	    transform: rotate(2deg);
+	    transform: rotate(-1deg);
 	    ">
 	  </div>
 	</div>
       </section>
 
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdoGebYUv4BbrSJydwOmt-mDzQrZQetvjOpMdnqh31CJfIxBg/viewform?embedded=true" width="640" height="1792" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
     </main>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdoGebYUv4BbrSJydwOmt-mDzQrZQetvjOpMdnqh31CJfIxBg/viewform?embedded=true" width="640" height="1792" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
 
     <div class="stripes">
       <div class="stripe" style="
@@ -248,5 +249,36 @@
 	">
       </div>
     </div>
+
+    <script>
+    const deadline = new Date('2024-09-22T05:00:00')
+    const countdownEls = document.querySelectorAll('.countdown')
+
+    const getDiffString = (deadline) => {
+      const now = new Date()
+      const diff = deadline - now
+
+      const ddhhmmss = [
+	((diff) / (1000 * 60 * 60 * 24)),
+	((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+	((diff % (1000 * 60 * 60)) / (1000 * 60)),
+	((diff % (1000 * 60)) / 1000),
+	((diff % (1000)) / 10),
+      ]
+
+      return ddhhmmss
+	.map((x) => Math.trunc(x))
+	.map((x) => String(x).padStart(2, 0))
+	.join(':')
+    }
+
+    const updateCountdown = () => {
+      const diffString = getDiffString(deadline)
+      countdownEls.forEach((x) => x.innerText = diffString)
+    }
+
+    updateCountdown()
+    setInterval(updateCountdown, 49)
+    </script>
   </body>
 </html>
