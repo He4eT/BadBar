@@ -30,9 +30,14 @@
       font-size: 30px;
       line-height: 1.5;
       text-transform: uppercase;
+      scroll-behavior: smooth;
 
       --padding: 32px;
       --width: 800px;
+    }
+
+    a {
+      color: inherit;
     }
 
     main {
@@ -107,7 +112,8 @@
       width: 100%;
       max-width: 750px;
       height: 2500px;
-      margin-top: 16vh;
+      margin-top: 8vh;
+      scroll-margin: 10vh;
     }
     </style>
   </head>
@@ -139,9 +145,8 @@
       </div>
 
       <div class="disclamer">
-	Плохой Бар — это некоммерческая и не организация,
-	которая существует на наши зарплаты и ваши донаты
-	и не имеет никакого отношения к администрации Кэмп U.
+	Дисклеймер! Бар это тусовка участников, а&nbsp;не&nbsp;движ от&nbsp;оргов.
+	Мы&nbsp;существуем на&nbsp;свои бабки и&nbsp;чтобы нас поддержать купите мерч.
       </div>
 
       <section>
@@ -158,16 +163,21 @@
 	    <h2 class="item-name">
 	      Свитер
 	    </h2>
-	    <p class="item-price">
-	      10 000 ₽
-	    </p>
-	    <p class="item-details">
-	      50% шерсть / 50% акрил <br>
-	      oversize <br>
-	      Осталось 35 шт.
-	    </p>
 	    <p class="item-description">
 	      Наша ода грузинским псам.
+	      <br>
+	      Плотной вязки. Тёплый.
+	      <br>
+	      Нетипичный для нас цвет, но&nbsp;очень нравится!
+	      <br>
+	      <a target="_blank" href="https://t.me/didjulek">Лясе</a> спасибо за&nbsp;дизайн ❤️
+	    </p>
+	    <p class="item-details">
+	      50% шерсть&nbsp;/ 50% акрил <br>
+	      oversize, ближе к&nbsp;XXL
+	    </p>
+	    <p class="item-price">
+	      10 000 ₽ <a href="#buy">Купить</a>
 	    </p>
 	  </div>
 	</article>
@@ -188,18 +198,21 @@
 	    <h2 class="item-name">
 	      Балаклава
 	    </h2>
-	    <p class="item-price">
-	      4 000 ₽
+	    <p class="item-description">
+	      Теперь всё на&nbsp;лице будет написано.
+	      <br>
+	      Только чёрный цвет. Ручная вышивка, на&nbsp;фото макеты.
+	      <br>
+	      Сворачивается в&nbsp;шапку, можно вытянуть ушки.
+	      <br>
+	      На&nbsp;баре можно взять подвески для костомизации.
 	    </p>
 	    <p class="item-details">
 	      шерсть / акрил <br>
 	      onesize <br>
-	      Осталось 15 шт.
 	    </p>
-	    <p class="item-description">
-	      Ручная вышивка BAD. <br>
-	      Сворачивается в шапку, можно вытянуть ушки. <br>
-	      На баре сможешь пришить подвеску, чтобы отличить себя. <br>
+	    <p class="item-price">
+	      2 500 ₽ <a href="#buy">Купить</a>
 	    </p>
 	  </div>
 	</article>
@@ -219,15 +232,21 @@
 	    <h2 class="item-name">
 	      Плед
 	    </h2>
-	    <p class="item-price">
-	      3 000 ₽
+	    <p class="item-description">
+	      თბილი значит тёплый.
+	      <br>
+	      Большой и&nbsp;мягкий, из&nbsp;флиса.
+	      <br>
+	      Сделает уютными не&nbsp;только домашние посиделки, но&nbsp;и&nbsp;ночь в&nbsp;аэропорту.
+	      <br>
+	      У&nbsp;каждого индивидуальный номер до&nbsp;10&nbsp;знаков
 	    </p>
 	    <p class="item-details">
 	      Флис<br>
-	      Осталось 33 шт.
+	      200x140 см.
 	    </p>
-	    <p class="item-description">
-	      На пледе уникальный номер.<br>
+	    <p class="item-price">
+	      3 000 ₽ <a href="#buy">Купить</a>
 	    </p>
 	  </div>
 	</article>
@@ -240,7 +259,14 @@
 	</div>
       </section>
 
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdoGebYUv4BbrSJydwOmt-mDzQrZQetvjOpMdnqh31CJfIxBg/viewform?embedded=true" width="640" height="1792" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+      <div class="announcement">
+	До конца предзаказа осталось
+	<span class="countdown">
+	  00:00:00:00
+	</span>
+      </div>
+
+      <iframe id="buy" src="https://docs.google.com/forms/d/e/1FAIpQLSdoGebYUv4BbrSJydwOmt-mDzQrZQetvjOpMdnqh31CJfIxBg/viewform?embedded=true" width="640" height="1792" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
     </main>
 
     <div class="stripes">
