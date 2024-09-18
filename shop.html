@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0, user-scalable=no">
 
     <meta property="og:title" content="BADBAR" />
     <meta property="og:type" content="website" />
@@ -80,7 +80,6 @@
     .item-images {
       display: flex;
       flex-direction: row;
-      /* gap: var(--padding); */
       overflow-x: scroll;
       height: 70vh;
 
@@ -89,10 +88,6 @@
 
       padding: 0 var(--padding);
       margin: 0 calc(-1 * var(--padding));
-    }
-
-    .item-images:hover {
-      /* scrollbar-color: #ff2f00 transparent; */
     }
 
     .item-images img {
@@ -130,16 +125,16 @@
 	position: sticky;
 	top: -14vh;
 	z-index: 100;
+	padding-top: 8vh;
+	padding-bottom: 12vh;
 	">
 	<div class="stripe" style="
 	  transform: rotate(-4deg);
-	  margin-top: 8vh;
 	  margin-bottom: -16vh
 	  ">
 	</div>
 	<div class="stripe" style="
 	  transform: rotate(3deg);
-	  margin-bottom: 12vh;
 	  ">
 	</div>
       </div>
