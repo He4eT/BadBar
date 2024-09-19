@@ -129,7 +129,7 @@
       <div class="announcement">
 	До конца предзаказа осталось
 	<span class="countdown">
-	  00:00:00:00
+	  00:00:00:00:00
 	</span>
       </div>
 
@@ -273,7 +273,7 @@
       <div class="announcement">
 	До конца предзаказа осталось
 	<span class="countdown">
-	  00:00:00:00
+	  00:00:00:00:00
 	</span>
       </div>
 
@@ -291,7 +291,16 @@
     const deadline = new Date('2024-09-19T12:00:00+05:00')
     const countdownEls = document.querySelectorAll('.countdown')
 
-    const getDiffString = (deadline) => {
+    const shouldCount = () => {
+      const now = new Date()
+      return deadline >= now
+    }
+
+    const getDiffString = () => {
+      if (!shouldCount()) {
+	return '00:00:00:00:00'
+      }
+
       const now = new Date()
       const diff = deadline - now
 
@@ -310,12 +319,14 @@
     }
 
     const updateCountdown = () => {
-      const diffString = getDiffString(deadline)
+      const diffString = getDiffString()
       countdownEls.forEach((x) => x.innerText = diffString)
     }
 
-    updateCountdown()
-    setInterval(updateCountdown, 49)
+    if (shouldCount()) {
+      updateCountdown()
+      setInterval(updateCountdown, 49)
+    }
     </script>
     <script>
     document.querySelectorAll('.item-images').forEach((slider) => {
